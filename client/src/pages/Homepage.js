@@ -10,9 +10,7 @@ const Homepage = () => {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const productsRes = await axios.get(
-          'http://localhost:4000/api/products'
-        );
+        const productsRes = await axios.get('/api/products');
         setOrigProducts(productsRes.data?.products);
         setProducts(productsRes.data?.products);
       } catch (error) {
