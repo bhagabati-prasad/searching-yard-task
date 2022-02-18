@@ -20,7 +20,7 @@ app.use(express.json({ limit: '500kb' }));
 app.use(express.urlencoded({ limit: '500kb', extended: true }));
 
 // serve static folder to serve files
-app.use(express.static(path.resolve(__dirname, '../client/build')));
+app.use(express.static(path.resolve(__dirname, 'client/build')));
 
 // ROUTES
 app.use('/', renderClient);
