@@ -4,6 +4,15 @@ import '../styles/header.css';
 
 const Header = ({ setProducts, origProducts }) => {
   const [search, setSearch] = useState('');
+  const [filterOptions, setFilterOptions] = useState([
+    { field: 'category', value: 'shoe', show: 'Shoe' },
+    { field: 'category', value: 'mobile', show: 'Mobile' },
+    { field: 'rating', value: 1, show: 'Rating 1' },
+    { field: 'rating', value: 2, show: 'Rating 2' },
+    { field: 'rating', value: 3, show: 'Rating 3' },
+    { field: 'rating', value: 4, show: 'Rating 4' },
+    { field: 'rating', value: 5, show: 'Rating 5' },
+  ]);
 
   const handleSearchChange = (e) => {
     setSearch(e.target.value);
@@ -24,29 +33,43 @@ const Header = ({ setProducts, origProducts }) => {
 
   const handleSort = (e) => {
     if (e.target.value === 'a-z') {
-      let sortedItems = [...origProducts].sort((a, b) =>
-        a.name > b.name ? 1 : b.name > a.name ? -1 : 0
+      setProducts((product) =>
+        [...product].sort((a, b) =>
+          a.name > b.name ? 1 : b.name > a.name ? -1 : 0
+        )
       );
-      setProducts(sortedItems);
     }
     if (e.target.value === 'z-a') {
-      let sortedItems = [...origProducts].sort((a, b) =>
-        a.name > b.name ? -1 : b.name > a.name ? 1 : 0
+      setProducts((product) =>
+        [...product].sort((a, b) =>
+          a.name > b.name ? -1 : b.name > a.name ? 1 : 0
+        )
       );
-      setProducts(sortedItems);
     }
     if (e.target.value === 'priceLowToHign') {
-      let sortedItems = [...origProducts].sort((a, b) =>
-        a.price > b.price ? 1 : b.price > a.price ? -1 : 0
+      setProducts((product) =>
+        [...product].sort((a, b) =>
+          a.price > b.price ? 1 : b.price > a.price ? -1 : 0
+        )
       );
-      setProducts(sortedItems);
     }
     if (e.target.value === 'priceHignToLow') {
-      let sortedItems = [...origProducts].sort((a, b) =>
-        a.price > b.price ? -1 : b.price > a.price ? 1 : 0
+      setProducts((product) =>
+        [...product].sort((a, b) =>
+          a.price > b.price ? -1 : b.price > a.price ? 1 : 0
+        )
       );
-      setProducts(sortedItems);
     }
+  };
+
+  const handleFilter = (filter) => {
+    setProducts(() =>
+      origProducts.filter((product) =>
+        filter.field !== 'rating'
+          ? product[filter.field] === filter.value
+          : Math.floor(product.rating) === filter.value
+      )
+    );
   };
 
   return (
@@ -84,9 +107,21 @@ const Header = ({ setProducts, origProducts }) => {
               <option value='priceLowToHign'>Price: Low to High</option>
               <option value='priceHignToLow'>Price: Hign to Low</option>
             </select>
-            <select name='filter' className='form-select'>
-              <option value=''>Filter</option>
-            </select>
+            <div className='filter'>
+              <label className='dropdown'>Filter</label>
+              <div className='dropdown_container'>
+                {filterOptions.map((filter) => (
+                  <label
+                    key={filter.value}
+                    htmlFor={filter.value}
+                    className='dropdown'
+                    onClick={() => handleFilter(filter)}
+                  >
+                    {filter.show}
+                  </label>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </header>

@@ -22,7 +22,9 @@ const CustomCard = ({ product }) => {
               &nbsp;{product?.price}
             </h4>
             <p>{product?.description}</p>
-            <p>{product?.rating}</p>
+            <p>
+              {product?.rating} <i class='fa-solid fa-star text-primary'></i>
+            </p>
           </div>
         </div>
       </div>

@@ -39,3 +39,38 @@ header .search label {
   transform: translatey(-50%);
   cursor: pointer;
 }
+
+header .filter {
+  height: 40px;
+  min-width: 140px;
+  background-color: #eee;
+  display: flex;
+  padding: 0.7rem;
+  position: relative;
+}
+
+header .filter .dropdown_container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  padding: 0.5rem;
+  border-radius: 4px;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.32s;
+}
+header .filter .dropdown {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+header .filter:hover .dropdown_container {
+  visibility: visible;
+  opacity: 1;
+}

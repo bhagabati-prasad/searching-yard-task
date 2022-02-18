@@ -29,10 +29,13 @@ const Homepage = () => {
         <div className='row'>
           <div className='col-md-10 col-12 mx-auto'>
             <div className='row mt-5 py-5 content_section'>
-              {!!products &&
+              {!!products.length ? (
                 products.map((product) => (
                   <CustomCard key={product._id} product={product} />
-                ))}
+                ))
+              ) : (
+                <h4>No Product found!</h4>
+              )}
             </div>
           </div>
         </div>
