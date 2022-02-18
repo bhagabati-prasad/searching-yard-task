@@ -1,0 +1,41 @@
+header {
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.1);
+  z-index: 9;
+}
+
+header a.logo {
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-right: 1rem;
+}
+
+header .search {
+  width: 300px;
+  background-color: #eee;
+  border: 2px solid #eee;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+}
+header .search input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 7px;
+}
+
+header .search label {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translatey(-50%);
+  cursor: pointer;
+}

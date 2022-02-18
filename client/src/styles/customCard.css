@@ -1,0 +1,50 @@
+.card {
+  border-radius: 10px;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 0.7rem 0;
+}
+
+.card .image {
+  max-height: 200px;
+  overflow: hidden;
+}
+
+.card .body {
+  padding: 0 1rem 1rem;
+}
+
+.card .body .category {
+  transform: translateY(-50%);
+}
+.card .body .category .box {
+  padding: 0.4rem 1rem;
+  background-color: #fff;
+  display: inline-block;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  letter-spacing: 0.4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card .body .name {
+  color: #1e90ff;
+  font-size: 1.3rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card .body .name::first-letter {
+  text-transform: uppercase;
+}
+.card .body .price {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.card .body p {
+  font-size: 1rem;
+  color: #666;
+}
